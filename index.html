@@ -1,1 +1,863 @@
-hi
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nanna ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff8fb1;
+  --light-pink: #ffe4ed;
+  --purple: #c9b6ff;
+  --dark: #513449;
+  --white: #fffafc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+section {
+  padding: 75px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 18px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,250,252,.94);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px 10px;
+  box-shadow: 0 3px 15px #e6b4c633;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #ef6592;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 70px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, #ffffff 0 8%, transparent 30%),
+    linear-gradient(135deg, #ffe3ec, #f5eaff, #fff2f6);
+  position: relative;
+  overflow: hidden;
+}
+
+.eyebrow {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  color: #dc5d8a;
+  font-size: clamp(48px, 10vw, 90px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero .subtitle {
+  max-width: 500px;
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.hero-photo {
+  width: 190px;
+  height: 240px;
+  object-fit: cover;
+  border: 7px solid white;
+  border-radius: 100px 100px 25px 25px;
+  box-shadow: 0 15px 40px #d889aa55;
+  margin: 10px 0 25px;
+  transform: rotate(-2deg);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #f47da4, #ba91ef);
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 20px #d58cb544;
+  transition: transform .2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* COUNTDOWN */
+
+.countdown-section {
+  background: white;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.time-box {
+  background: #fff0f5;
+  border: 1px solid #ffd4e2;
+  border-radius: 18px;
+  width: 85px;
+  padding: 18px 8px;
+}
+
+.time-box strong {
+  display: block;
+  color: #d85887;
+  font-size: 27px;
+}
+
+.time-box span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.small-note {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #947585;
+}
+
+/* PHOTO GALLERY */
+
+.gallery-section {
+  background: linear-gradient(180deg, #fff8fb, #fff0f6);
+}
+
+.gallery-intro {
+  max-width: 550px;
+  margin: 0 auto 35px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.photo-card {
+  background: white;
+  padding: 9px 9px 17px;
+  border-radius: 16px;
+  box-shadow: 0 7px 25px #bd77941a;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform .3s, box-shadow .3s;
+}
+
+.photo-card:hover {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 0 12px 30px #bd779433;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f6dce6;
+}
+
+.photo-card p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+@media (min-width: 650px) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-card img {
+    height: 280px;
+  }
+}
+
+/* OUR STORY */
+
+.story-section {
+  background: white;
+}
+
+.story {
+  max-width: 600px;
+  margin: 35px auto 0;
+  text-align: left;
+  border-left: 3px solid #ffc4d8;
+  padding-left: 22px;
+}
+
+.story-item {
+  position: relative;
+  padding: 0 0 28px;
+}
+
+.story-item::before {
+  content: "♥";
+  position: absolute;
+  left: -33px;
+  top: 0;
+  color: #ed7fa5;
+  background: white;
+}
+
+.story-item h3 {
+  color: #d85887;
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+.story-item p {
+  font-size: 14px;
+}
+
+/* LETTER */
+
+.letter-section {
+  background: linear-gradient(135deg, #ffe5ef, #f2eaff);
+}
+
+.letter-card {
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: 28px 22px;
+  border-radius: 22px;
+  background: #ffffffc9;
+  box-shadow: 0 12px 35px #9f719522;
+}
+
+.letter-card .script {
+  font-size: 29px;
+  color: #d85887;
+  margin-bottom: 15px;
+}
+
+#letterText {
+  display: none;
+  text-align: left;
+  white-space: pre-line;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#letterText.show {
+  display: block;
+  animation: fadeIn .7s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PANDA GAME */
+
+.panda-section {
+  background: #fff9fc;
+}
+
+.panda {
+  font-size: 100px;
+  border: none;
+  background: transparent;
+  transition: transform .2s;
+  margin: 20px 0 10px;
+}
+
+.panda:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.panda:active {
+  transform: scale(.9);
+}
+
+.score {
+  color: #d85887;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.panda-message {
+  min-height: 55px;
+  max-width: 500px;
+  margin: 0 auto 15px;
+}
+
+/* MUSIC */
+
+.music-section {
+  background: #fff0f5;
+}
+
+.music-card {
+  max-width: 560px;
+  margin: 25px auto 0;
+  padding: 25px;
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px #c5829c22;
+}
+
+.music-icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.music-card h3 {
+  margin-bottom: 8px;
+}
+
+.music-card p {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* FINAL */
+
+.final-section {
+  background: linear-gradient(135deg, #f7dfff, #ffe2ed);
+  padding: 90px 20px;
+}
+
+.final-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(40px, 8vw, 68px);
+  color: #d85887;
+}
+
+.final-message {
+  max-width: 570px;
+  margin: 0 auto 25px;
+}
+
+footer {
+  padding: 25px 15px;
+  text-align: center;
+  font-size: 12px;
+  background: #fffafc;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 100;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
+  .photo-card img { height: 170px; }
+  .time-box { width: 72px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#home">HOME</a>
+  <a href="#countdown">COUNTDOWN</a>
+  <a href="#memories">MEMORIES</a>
+  <a href="#story">OUR STORY</a>
+  <a href="#letter">MY LETTER</a>
+  <a href="#panda">PANDA</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <p class="eyebrow">A special day for my favourite person</p>
+
+  <h1>Happy Birthday<br>My Nanna! 💗</h1>
+
+  <img class="hero-photo"
+       src="./IMG_2516.jpeg"
+       alt="A special memory"
+       onerror="this.style.display='none'">
+
+  <p class="subtitle">
+    To the girl who makes my world softer, brighter and more beautiful.
+    Today is all about you, HARI PRIYA REDDY CHINTHALA. 🎂
+  </p>
+
+  <a class="primary-btn" href="#letter">Open your surprise 💌</a>
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section" id="countdown">
+  <p class="eyebrow">The countdown to your special day</p>
+  <h2 class="script">Your Day Is Here! 🎂</h2>
+
+  <p id="countdownMessage">
+    Counting down to October 30, the day someone very special was born.
+  </p>
+
+  <div class="countdown" id="countdownBoxes">
+    <div class="time-box">
+      <strong id="days">00</strong>
+      <span>Days</span>
+    </div>
+    <div class="time-box">
+      <strong id="hours">00</strong>
+      <span>Hours</span>
+    </div>
+    <div class="time-box">
+      <strong id="minutes">00</strong>
+      <span>Minutes</span>
+    </div>
+    <div class="time-box">
+      <strong id="seconds">00</strong>
+      <span>Seconds</span>
+    </div>
+  </div>
+
+  <p class="small-note">
+    October 30 will always be a special date in my heart. 💗
+  </p>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery-section" id="memories">
+  <p class="eyebrow">Little pieces of happiness</p>
+  <h2 class="script">Our Beautiful Memories 📸</h2>
+
+  <p class="gallery-intro">
+    Every picture holds a moment, every moment holds a feeling,
+    and every feeling reminds me how lucky I am to have you.
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo-card" style="--tilt:-2deg">
+      <img src="./IMG_2516.jpeg" alt="Our memory one">
+      <p>My favourite memory 💗</p>
+    </div>
+
+    <div class="photo-card" style="--tilt:2deg">
+      <img src="./IMG_2532.jpeg" alt="Our memory two">
+      <p>My happy place 🌷</p>
+    </div>
+
+    <div class="photo-card" style="--tilt:-1deg">
+      <img src="./IMG_2634.jpeg" alt="Our memory three">
+      <p>Just you and me 🫶</p>
+    </div>
+
+    <div class="photo-card" style="--tilt:2deg">
+      <img src="./IMG_2749.jpeg" alt="Our memory four">
+      <p>A moment to remember ✨</p>
+    </div>
+
+    <div class="photo-card" style="--tilt:-2deg">
+      <img src="./IMG_2780.jpeg" alt="Our memory five">
+      <p>You make life sweeter 🍓</p>
+    </div>
+
+    <div class="photo-card" style="--tilt:1deg">
+      <img src="./IMG_3608.jpeg" alt="Our memory six">
+      <p>My forever favourite 💞</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORY -->
+
+<section class="story-section" id="story">
+  <p class="eyebrow">A little story about us</p>
+  <h2 class="script">You, Me & Our Little World 💕</h2>
+
+  <p>Some people become special without even trying.</p>
+
+  <div class="story">
+
+    <div class="story-item">
+      <h3>The beginning 🌸</h3>
+      <p>
+        Somewhere along the way, you became someone I look forward to
+        talking to, someone I think about, and someone who makes ordinary
+        days feel special.
+      </p>
+    </div>
+
+    <div class="story-item">
+      <h3>The little things 🫶</h3>
+      <p>
+        Your messages, your smile, our conversations and the little
+        moments we share mean more to me than I can explain.
+      </p>
+    </div>
+
+    <div class="story-item">
+      <h3>Today and tomorrow 💗</h3>
+      <p>
+        I hope we keep learning, growing, understanding each other
+        and making beautiful memories together.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOVE LETTER -->
+
+<section class="letter-section" id="letter">
+  <p class="eyebrow">Something from my heart</p>
+  <h2 class="script">A Letter For My Nanna 💌</h2>
+
+  <div class="letter-card">
+    <p class="script">To my precious Nanna,</p>
+
+    <p>
+      There is a little surprise waiting here just for you.
+      Open it whenever you're ready. ❤️
+    </p>
+
+    <br>
+
+    <button class="primary-btn" id="letterButton"
+            onclick="toggleLetter()">
+      Open My Heart 💗
+    </button>
+
+    <div id="letterText">
+Happy Birthday, my Nanna! ❤️🎂
+
+HARI PRIYA REDDY CHINTHALA, today is all about you.
+
+I wish I could put all my feelings into words, but sometimes words are too small for what my heart wants to say.
+
+You are such a special part of my life. Your happiness matters to me, your smile means so much to me, and the little moments we share are memories I want to keep close to my heart.
+
+I know that no relationship is perfect. We may misunderstand each other sometimes, and we may have difficult days. But I hope we always try to listen, understand, respect and support each other.
+
+On your birthday, I wish you endless happiness, good health, success and all the beautiful things you dream about. Never stop believing in yourself. You deserve kindness, peace and so many reasons to smile.
+
+Thank you for being YOU.
+
+Happy Birthday once again, my Nanna. May this new year of your life bring you more happiness than you can imagine.
+
+With all my love,
+Your Mahesh ❤️💛
+
+    </div>
+  </div>
+</section>
+
+<!-- PANDA SURPRISE -->
+
+<section class="panda-section" id="panda">
+  <p class="eyebrow">A tiny birthday game</p>
+  <h2 class="script">Nanna's Panda Garden 🐼</h2>
+
+  <p>Tap the panda 5 times to collect your little love surprises!</p>
+
+  <button class="panda" id="pandaButton"
+          aria-label="Tap the panda to collect hearts"
+          onclick="tapPanda()">🐼</button>
+
+  <p class="score" id="pandaScore">Love collected: 0 / 5 💗</p>
+
+  <p class="panda-message" id="pandaMessage">
+    Your panda is waiting for you!
+  </p>
+
+  <button class="primary-btn" onclick="resetPanda()">
+    Play Again 🐼
+  </button>
+</section>
+
+<!-- SONG -->
+
+<section class="music-section" id="song">
+  <p class="eyebrow">A song that says it beautifully</p>
+  <h2 class="script">This Song Is For You 🎶</h2>
+
+  <div class="music-card">
+    <div class="music-icon">🎵</div>
+    <h3>Perfect — Ed Sheeran</h3>
+
+    <p>
+      A little song dedication for someone who means a lot to me.
+      Listen and enjoy your special day. 💗
+    </p>
+
+    <a class="primary-btn"
+       href="https://www.youtube.com/watch?v=2Vv-BfVoq4g"
+       target="_blank"
+       rel="noopener noreferrer">
+      Listen to Your Song 🎧
+    </a>
+  </div>
+</section>
+
+<!-- FINAL SURPRISE -->
+
+<section class="final-section">
+  <p class="eyebrow">One last thing, birthday girl</p>
+
+  <h2>Happy Birthday, Nanna! 💖</h2>
+
+  <p class="final-message">
+    No matter how many birthdays come and go, I hope each one brings
+    you closer to your dreams and gives you a thousand reasons to smile.
+    Keep shining, keep being yourself, and never forget how special you are.
+  </p>
+
+  <button class="primary-btn" onclick="celebrate()">
+    Send Birthday Magic ✨
+  </button>
+
+  <p class="script" style="font-size:30px; margin-top:30px;">
+    Made with love, just for you. ❤️
+  </p>
+</section>
+
+<footer>
+  Made with 💗 by Mahesh for Nanna
+  <br>
+  October 30 • Your special day 🎂
+</footer>
+
+<script>
+/* BIRTHDAY COUNTDOWN
+   The countdown uses October 30 in the visitor's local time.
+*/
+
+function updateCountdown() {
+  const now = new Date();
+
+  let year = now.getFullYear();
+
+  let birthday = new Date(year, 9, 30, 0, 0, 0);
+
+  if (now >= birthday) {
+    birthday = new Date(year + 1, 9, 30, 0, 0, 0);
+  }
+
+  const difference = birthday.getTime() - now.getTime();
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2, "0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+/* LOVE LETTER */
+
+function toggleLetter() {
+  const letter = document.getElementById("letterText");
+  const button = document.getElementById("letterButton");
+
+  letter.classList.toggle("show");
+
+  if (letter.classList.contains("show")) {
+    button.textContent = "Close My Letter 💌";
+    letter.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    createHearts(8);
+  } else {
+    button.textContent = "Open My Heart 💗";
+  }
+}
+
+
+/* PANDA GAME */
+
+let pandaCount = 0;
+
+const pandaMessages = [
+  "Your smile makes everything brighter! 🌷",
+  "Sending you a pocket full of hugs! 🫶",
+  "You deserve all the happiness in the world! 💗",
+  "Panda says: Keep smiling, birthday girl! 🐼",
+  "Surprise! You collected 5 hearts! Happy Birthday, Nanna! 🎂💖"
+];
+
+function tapPanda() {
+  if (pandaCount >= 5) {
+    document.getElementById("pandaMessage").textContent =
+      "You already collected all your hearts! Play again for more love. 💗";
+    return;
+  }
+
+  pandaCount++;
+
+  document.getElementById("pandaScore").textContent =
+    "Love collected: " + pandaCount + " / 5 💗";
+
+  document.getElementById("pandaMessage").textContent =
+    pandaMessages[pandaCount - 1];
+
+  const panda = document.getElementById("pandaButton");
+  panda.textContent = pandaCount === 5 ? "🐼💖" : "🐼";
+
+  createHearts(3);
+
+  if (pandaCount === 5) {
+    celebrate();
+  }
+}
+
+function resetPanda() {
+  pandaCount = 0;
+
+  document.getElementById("pandaScore").textContent =
+    "Love collected: 0 / 5 💗";
+
+  document.getElementById("pandaMessage").textContent =
+    "Your panda is waiting for you!";
+
+  document.getElementById("pandaButton").textContent = "🐼";
+}
+
+
+/* FLOATING HEART ANIMATION */
+
+function createHearts(amount) {
+  const symbols = ["💗", "💕", "💖", "💝", "✨"];
+
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+      heart.remove();
+    }, 6500);
+  }
+}
+
+
+/* BIRTHDAY CELEBRATION */
+
+function celebrate() {
+  createHearts(35);
+
+  const button = document.querySelector(".final-section .primary-btn");
+  if (button) {
+    button.textContent = "Happy Birthday, Nanna! 💖🎂";
+  }
+}
+</script>
+
+</body>
+</html>
